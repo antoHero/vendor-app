@@ -1,0 +1,17 @@
+To begin you need to install laravel here. You can read the documentation <a href="https://laravel.com/">here</a>
+This guide assumes you have installed XAMPP
+Follow the steps below to install and build your first application with Laravel
+
+1. On windows, to make it easier, download git here https://git-scm.com/downloads and git bash for windows gitforwindows.org.
+2. After installation, go to your htdocs directory, right click and select 'Git Bash Here'. You are going to install composer (a dependency manager for Laravel), download the exe file here https://getcomposer.org/download/
+3. Now its time to install laravel, paste this in your command prompt composer global require "laravel/installer". Now you have sucessfully installed laravel
+4. Download the zip file of the vendor-app on github and extract it in your htdocs folder
+5. Start apache and mysql on XAMPP control panel and create a database kasu_vendors
+6. Open the .env in the root directory of vendor-app and look for DB_DATABASE and set it to the database you just created
+7. In the terminal, it should be pointing to c/xampp/htdocs. Do cd vendor_app in the terminal and hit enter. It should now be pointing you to c/xampp/htdocs/vendor_app
+8. Now you have to update your composer to make sure that all the dependecies are loaded and up to date
+9. If update is complete, do php artisan serve. Your app should be listening on port http://localhost:8000 . copy the address and paste in your browser which should be working
+10. Go to http://localhost:8000/login to login as admin or vendor
+11. Admin login credentials admin@test.com pword 12345678
+12. Vendor login credentials vendor@test.com pword 12345678
+13. To register a new vendor, go to http:/localhost:8000/register
