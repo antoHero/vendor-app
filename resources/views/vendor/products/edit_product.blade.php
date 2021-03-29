@@ -3,7 +3,7 @@
 @section('content')
 <div class="page-inner bg-light ">
     <div>
-              <div class="row">
+              {{-- <div class="row">
                 <div class="col-sm-12">
                   <div class="mb-3 card">
                     <div
@@ -19,13 +19,7 @@
                               class="position-relative d-flex rounded-circle"
                               style="width: 64px; height: 64px;"
                             >
-                              <img
-                                src="images/avatar.jpg"
-                                alt="avatar"
-                                width="64px"
-                                height="64px"
-                                class="rounded-circle"
-                              />
+                              
                             </span>
                           </a>
                           <div class="d-inline-block px-3">
@@ -50,7 +44,7 @@
                             >Activity</a
                           >
                         </li> --}}
-                        <li class="nav-item">
+                       {{--  <li class="nav-item">
                           <a
                             class="nav-link"
                             data-toggle="tab"
@@ -60,12 +54,12 @@
                             aria-selected="false"
                             >Product Settings</a
                           >
-                        </li>
-                      </ul>
+                        </li> --}}
+                      {{-- </ul>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> --}}
               <div class="row">
                 <div class="col-lg-8">
                   <div class="tab-content">

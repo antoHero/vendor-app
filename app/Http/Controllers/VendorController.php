@@ -84,11 +84,10 @@ class VendorController extends Controller
 
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        $vendor_product_count = Product::count($user);
+        // $vendor_product_count = Product::count($user);
         $product = Product::where('slug', $slug)->first();
         return view('vendor.products.edit_product', [
             'product' => $product,
-            'vendor_product_count' => $vendor_product_count
         ]);
     }
 
@@ -141,7 +140,7 @@ class VendorController extends Controller
             'message' => 'You have updated this product!',
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($success_notification);
+        return redirect()->route('products')->with($success_notification);
     }
 
     public function delete_product($slug)

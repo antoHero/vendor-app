@@ -70,8 +70,8 @@
     </div> --}}
     <div class="row">
       <div class="col-sm-6 col-md-3">
-        <div class="card card-body ">
-          <div class=" justify-content-start align-items-center row ">
+        {{-- <div class="card card-body "> --}}
+          {{-- <div class=" justify-content-start align-items-center row ">
             <div class="col-auto ">
               <button
                 type="button"
@@ -92,8 +92,8 @@
               <h5 class="stat-widget-title mb-0 fw-400 ">576K</h5>
               <h6 class="stat-widget-subtitle ">Products</h6>
             </div>
-          </div>
-        </div>
+          </div> --}}
+        {{-- </div> --}}
       </div>
      {{--  <div class="col-sm-6 col-md-3">
         <div class="card card-body ">
@@ -192,7 +192,7 @@
                         <tr>
                           <th>S/No</th>
                           <th>Title</th>
-                          <th>Slug</th>
+                          {{-- <th>Slug</th> --}}
                           <th>Price</th>
                           <th>Action</th>
                           <th>Delete</th>
@@ -211,7 +211,7 @@
                         <tr>
                           <td>{{ ++$key }}</td>
                           <td>{{ $product->title }}</td>
-                          <td>-{{ $product->slug }}</td>
+                          {{-- <td>{{ $product->slug }}</td> --}}
                           <td>{{ $product->price }}</td>
                           <td><a href="{{route('edit_product', $product->slug)}}" type="button" class="btn btn-primary">Edit</a></td>
                           <td>

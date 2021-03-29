@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
+
 use App\Models\Product;
 use App\Models\Shop;
 use App\Models\Suggestion;
@@ -31,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::DefaultStringLength(191);
+
         View::composer('*', function($view) {
             $view->with('product_count', Product::count());
             $view->with('shop_count', Shop::count());
