@@ -184,6 +184,25 @@
               Add
             </button>
           </div>
+          @if(session('success'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+          <span class="alert-inner--text">{{ session('success') }}</span>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      @endif
+
+      @if(session('error'))
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
+          <span class="alert-inner--text">{{ session('error') }}</span>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      @endif
           <div class="card-body">
                 <div class="table-responsive">
                   <div class="table-responsive">
@@ -212,7 +231,7 @@
                           <td>{{ ++$key }}</td>
                           <td>{{ $product->title }}</td>
                           {{-- <td>{{ $product->slug }}</td> --}}
-                          <td>{{ $product->price }}</td>
+                          <td>₦{{ number_format($product->price) }}</td>
                           <td><a href="{{route('edit_product', $product->slug)}}" type="button" class="btn btn-primary">Edit</a></td>
                           <td>
                             <form method="POST" action="{{ route('delete_product', $product->slug) }}">

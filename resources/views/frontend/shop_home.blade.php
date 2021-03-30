@@ -97,7 +97,7 @@
                                         <p class="product-desciption">by -{{ $product->user->name }}</p>
                                         <div class="product-meta">
                                             <ul class="product-price-list">
-                                                <li><span class="product-price">N{{ $product->price }}</span>
+                                                <li><span class="product-price">₦{{ number_format($product->price) }}</span>
                                                 </li>
                                             </ul>
                                             {{-- <ul class="product-actions-list">
@@ -118,7 +118,8 @@
                     </div>
                     
                     <!--Pagination-->
-                    <div class="pagination-wrapper">
+                    {{ $front_products->links('vendor.pagination.simple-tailwind') }}
+                    {{-- <div class="pagination-wrapper">
                         <ul class="pagination">
                             <li>
                                 <a href="#" aria-label="Previous">
@@ -136,7 +137,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
 
                 </div> <!--/product items-->
 

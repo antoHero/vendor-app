@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function home()
     {
-    	$front_products = Product::all();
+    	$front_products = Product::paginate(3);
     	return view('frontend.shop_home', [
     		'front_products' => $front_products
     	]);

@@ -30,9 +30,9 @@ class VendorController extends Controller
     public function addProduct(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|string|max:20',
+            'title' => 'required|string|max:100',
             'price' => 'required|string',
-            'description' => 'required|max:100'
+            'description' => 'required|max:255'
         ]);
 
         if($request->hasFile('image')) {
@@ -72,10 +72,10 @@ class VendorController extends Controller
 
         $product->save();
         $success_notification = array(
-            'message' => 'You have add a product!',
+            'message' => 'You have added a product!',
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($success_notification);
+        return redirect()->route('products')->with('success', 'You have added a product successfully!');
         // return redirect()->back()->with('success', 'Product added successfully');
     }
 
@@ -94,9 +94,10 @@ class VendorController extends Controller
     public function updateProduct(Request $request, $slug)
     {
         $this->validate($request, [
-            'title' => 'required|string|max:20',
-            'price' => 'required|string',
-            'description' => 'required|max:100'
+            'title' => 'nullable|string|max:100',
+            'price' => 'nullable|string',
+            'description' => 'nullable|max:255',
+            'image' => 'nullable|max:255'
         ]);
 
         if($request->hasFile('image')) {
@@ -137,10 +138,11 @@ class VendorController extends Controller
         $product->update();
 
         $success_notification = array(
-            'message' => 'You have updated this product!',
-            'alert-type' => 'success'
-        );
-        return redirect()->route('products')->with($success_notification);
+                'message' => 'You have updated this product!',
+                'alert-type' => 'success'
+            );
+        
+        return redirect()->route('products')->with('success', 'You have updated a product successfully!');
     }
 
     public function delete_product($slug)

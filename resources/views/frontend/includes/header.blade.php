@@ -80,9 +80,8 @@
 
                 <div class="navigation navigation-top clearfix">
                     <ul>
-                        
                         <li><a href="javascript:void(0);" class="open-login"><i class="icon icon-file-add"></i></a></li>
-                        <li><a href="{{ route('login') }}" class="open-search"><i class="icon icon-pencil"></i></a></li>
+                        
                     </ul>
                 </div>
 
@@ -183,6 +182,20 @@
                             
                             <li><a href="/">Home</a></li>
                             <li><a href="javascript:void(0);" class="open-login">Suggestion Box</a></li>
+                            @if(Route::has('login'))
+                            @auth
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <a onclick="event.preventDefault();
+                          this.closest('form').submit();">Logout</a>
+                                </form>
+                                
+                            </li>
+                            @else
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            @endauth
+                            @endif
                         </ul>
                     </div>
                 </div>

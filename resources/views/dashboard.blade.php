@@ -265,10 +265,10 @@
         </div>
       </div> --}}
       @else  
-        <div class="col-auto">
+        {{-- <div class="col-auto">
           <h5 class="stat-widget-title mb-0 fw-400 ">576K</h5>
           <h6 class="stat-widget-subtitle ">Products</h6>
-        </div>
+        </div> --}}
         @endif
     </div>
 
@@ -295,7 +295,7 @@
                     <tr>
                       <td>{{ ++$key }}</td>
                       <td>{{ $product->title }}</td>
-                      <td>{{ $product->price }}</td>
+                      <td>₦{{ number_format($product->price) }}</td>
                       <td>{{ $product->user->name }}</td>
                       <td>
                         <form action="{{ route('admin_delete_product', $product->slug) }}" method="POST">
@@ -317,12 +317,22 @@
       </div>
       @else
       <div class="col-xs-12 col-sm-6">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="mb-4 card">
           <div class="card-header">
             <b>Add Product Form</b>
           </div>
           <div class="card-body">
-            <form class="">
+            <form class="" action="{{ route('add') }}" method="POST" enctype="multipart/form-data">
+              @csrf
               <div class="form-group">
                 <label class="" for="exampleEmail">Title</label>
                 <input class="form-control" id="exampleEmail" name="title" placeholder="Product title" type="text">
@@ -339,7 +349,7 @@
               </div>
               <div class="form-group">
                 <label class="" for="exampleText">Description</label>
-                <textarea class="form-control" id="exampleText" name="text"></textarea>
+                <textarea class="form-control" id="exampleText" name="description"></textarea>
               </div>
               
               <button class="btn btn-secondary" type="submit">Submit</button>
